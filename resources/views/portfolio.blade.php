@@ -64,9 +64,9 @@
 
         <section id="contact" class="border-t border-slate-800 bg-slate-900/40">
             <div class="mx-auto max-w-6xl px-6 py-16">
-                <h2 class="text-2xl font-semibold">Contact</h2>
-                <p class="mt-4 text-slate-300">Email: you@example.com</p>
-                <p class="mt-2 text-slate-300">LinkedIn / GitHub: add your links here</p>
+                <h2 class="text-2xl font-semibold">+639310194370</h2>
+                <p class="mt-4 text-slate-300">Email: ircisaldaba97@gmail.com</p>
+                <p class="mt-2 text-slate-300">https://www.linkedin.com/in/ircis-sadi-aldaba-921390296/ / https://github.com/isaldaba / https://github.com/IrcisSadi</p>
             </div>
         </section>
     </main>
