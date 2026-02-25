@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
+
+    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @else
+        <script src="https://cdn.tailwindcss.com"></script>
+    @endif
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased">
+    <header class="border-b border-slate-800">
+        <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+            <p class="text-lg font-semibold">My Portfolio</p>
+            <div class="flex items-center gap-5 text-sm text-slate-300">
+                <a href="#about" class="hover:text-white">About</a>
+                <a href="#projects" class="hover:text-white">Projects</a>
+                <a href="#contact" class="hover:text-white">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="mx-auto max-w-6xl px-6 py-20">
+            <p class="mb-4 inline-block rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">Laravel 12 • PHP 8.2 • Tailwind CSS</p>
+            <h1 class="max-w-3xl text-4xl font-bold leading-tight md:text-5xl">Hi, I’m Your Ircis Sadi Aldaba. I build clean and fast web apps and I am a Full Web Developer currently working in ITech-rar, Solutions Inc..</h1>
+            <p class="mt-6 max-w-2xl text-base text-slate-300 md:text-lg">This is a simple portfolio starter built with Laravel Blade and Tailwind. Update this content with your real bio, projects, and contact links.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+                <a href="#projects" class="rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-400">View Projects</a>
+                <a href="#contact" class="rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 hover:bg-slate-800">Contact Me</a>
+            </div>
+        </section>
+
+        <section id="about" class="border-y border-slate-800 bg-slate-900/40">
+            <div class="mx-auto max-w-6xl px-6 py-16">
+                <h2 class="text-2xl font-semibold">About Me</h2>
+                <p class="mt-4 max-w-3xl text-slate-300">I’m a web developer focused on building practical and user-friendly applications. I enjoy working with Laravel for backend structure and Tailwind for clean responsive interfaces.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="mx-auto max-w-6xl px-6 py-16">
+            <h2 class="text-2xl font-semibold">Projects</h2>
+            <div class="mt-8 grid gap-6 md:grid-cols-3">
+                <article class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                    <h3 class="text-lg font-semibold">Project One</h3>
+                    <p class="mt-2 text-sm text-slate-300">Short description of your first project.</p>
+                </article>
+                <article class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                    <h3 class="text-lg font-semibold">Project Two</h3>
+                    <p class="mt-2 text-sm text-slate-300">Short description of your second project.</p>
+                </article>
+                <article class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                    <h3 class="text-lg font-semibold">Project Three</h3>
+                    <p class="mt-2 text-sm text-slate-300">Short description of your third project.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="border-t border-slate-800 bg-slate-900/40">
+            <div class="mx-auto max-w-6xl px-6 py-16">
+                <h2 class="text-2xl font-semibold">Contact</h2>
+                <p class="mt-4 text-slate-300">Email: you@example.com</p>
+                <p class="mt-2 text-slate-300">LinkedIn / GitHub: add your links here</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
