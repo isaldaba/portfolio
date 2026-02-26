@@ -8,9 +8,5 @@ cmds = [
     "composer install --no-dev --optimize-autoloader",
     "npm ci",
     "npm run build",
-    "touch database/database.sqlite",
-    "php artisan migrate --force --no-interaction 2>/dev/null || true"
+    "touch database/database.sqlite"
 ]
-
-[start]
-cmd = "php artisan config:clear && php artisan serve --host=0.0.0.0 --port=$PORT"
