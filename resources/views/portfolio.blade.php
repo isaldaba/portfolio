@@ -53,7 +53,7 @@
                 <article class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 transition duration-300 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
                     <p class="inline-flex rounded-full border border-indigo-400/20 bg-indigo-500/10 px-2.5 py-1 text-sm font-semibold tracking-wide text-indigo-300">2025 - To Date</p>
                     <h3 class="mt-3 text-3xl font-semibold text-slate-50">Jr. Full-Stack Web Developer</h3>
-                    <p class="mt-1 text-sm font-medium text-sky-300">ITech-RAK / Kumosoft, Mindanao Branch</p>
+                    <p class="mt-1 text-sm font-medium text-sky-300">ITech-RAR / Kumosoft, Mindanao Branch</p>
                     <p class="mt-3 text-sm leading-relaxed text-slate-200">Currently working as a Junior Full-Stack Developer, building new features and functions, debugging issues, and maintaining school websites in Mindanao while providing technical support for system-related concerns.</p>
                 </article>
                 <article class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 transition duration-300 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
@@ -91,11 +91,63 @@
 
         <section id="contact" class="border-t border-slate-800 bg-slate-900/40">
             <div class="mx-auto max-w-6xl px-6 py-16">
-                <h2 class="text-2xl font-semibold">+639310194370</h2>
-                <p class="mt-4 text-slate-300">Email: ircisaldaba97@gmail.com</p>
-                <p class="mt-2 text-slate-300">https://www.linkedin.com/in/ircis-sadi-aldaba-921390296/ / https://github.com/isaldaba / https://github.com/IrcisSadi</p>
+                <h2 class="text-2xl font-semibold">Contact me</h2>
+                <div class="group mt-4 inline-flex items-center gap-3">
+                    <button id="copy-phone" type="button" data-phone="+639310194370" class="text-2xl font-semibold transition duration-200 hover:scale-105">
+                        +639310194370
+                    </button>
+                    <span id="copy-phone-label" class="text-sm text-slate-400 opacity-0 transition-opacity duration-200 group-hover:opacity-100">Copy</span>
+                </div>
+                <p class="mt-4 text-slate-300">Email: <a href="mailto:ircisaldaba97@gmail.com" class="hover:text-white hover:underline">ircisaldaba97@gmail.com</a></p>
+                <p class="mt-2 flex flex-wrap gap-2 text-slate-300">
+                    <a href="https://www.linkedin.com/in/ircis-sadi-aldaba-921390296/" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline">LinkedIn</a>
+                    <span>/</span>
+                    <a href="https://github.com/isaldaba" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline">GitHub (isaldaba)</a>
+                    <span>/</span>
+                    <a href="https://github.com/IrcisSadi" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline">GitHub (IrcisSadi)</a>
+                </p>
             </div>
         </section>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyPhoneButton = document.getElementById('copy-phone');
+            const copyPhoneLabel = document.getElementById('copy-phone-label');
+
+            if (!copyPhoneButton) {
+                return;
+            }
+
+            copyPhoneButton.addEventListener('click', async () => {
+                const phoneNumber = copyPhoneButton.dataset.phone ?? copyPhoneButton.textContent?.trim() ?? '';
+
+                if (!phoneNumber) {
+                    return;
+                }
+
+                try {
+                    await navigator.clipboard.writeText(phoneNumber);
+                } catch {
+                    const tempInput = document.createElement('textarea');
+                    tempInput.value = phoneNumber;
+                    tempInput.style.position = 'fixed';
+                    tempInput.style.opacity = '0';
+                    document.body.appendChild(tempInput);
+                    tempInput.focus();
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                }
+
+                if (copyPhoneLabel) {
+                    copyPhoneLabel.textContent = 'Copied!';
+
+                    window.setTimeout(() => {
+                        copyPhoneLabel.textContent = 'Copy';
+                    }, 1200);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
