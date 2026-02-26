@@ -42,56 +42,62 @@
 
         <section id="about" class="border-y border-slate-800 bg-slate-900/40">
             <div class="mx-auto max-w-6xl px-6 py-16">
-                <h2 class="text-2xl font-semibold">About Me</h2>
-                <p class="mt-4 max-w-3xl text-slate-300">I’m a web developer focused on building practical and user-friendly applications. I enjoy working with Laravel for backend structure and Tailwind for clean responsive interfaces.</p>
+                <h2 data-reveal data-delay="0" class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white opacity-0 -translate-x-12 transition-all duration-700 ease-out shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">About Me</h2>
+                <p data-reveal data-delay="120" class="mt-4 max-w-3xl text-slate-300 opacity-0 -translate-x-12 transition-all duration-700 ease-out">I’m a web developer focused on building practical and user-friendly applications. I enjoy working with Laravel for backend structure and Tailwind for clean responsive interfaces.</p>
             </div>
         </section>
 
         <section id="experience" class="mx-auto max-w-6xl px-6 py-16">
-            <h2 class="text-2xl font-semibold text-slate-50">Experience</h2>
+            <h2 data-reveal data-delay="0" class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white opacity-0 -translate-x-12 transition-all duration-700 ease-out shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Experience</h2>
             <div class="mt-8 grid gap-6 md:grid-cols-3">
-                <article class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 transition duration-300 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
+                <article data-reveal data-delay="80" class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
                     <p class="inline-flex rounded-full border border-indigo-400/20 bg-indigo-500/10 px-2.5 py-1 text-sm font-semibold tracking-wide text-indigo-300">2025 - To Date</p>
                     <h3 class="mt-3 text-3xl font-semibold text-slate-50">Jr. Full-Stack Web Developer</h3>
                     <p class="mt-1 text-sm font-medium text-sky-300">ITech-RAR / Kumosoft, Mindanao Branch</p>
                     <p class="mt-3 text-sm leading-relaxed text-slate-200">Currently working as a Junior Full-Stack Developer, building new features and functions, debugging issues, and maintaining school websites in Mindanao while providing technical support for system-related concerns.</p>
                 </article>
-                <article class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 transition duration-300 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
+                <article data-reveal data-delay="160" class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
                     <p class="inline-flex rounded-full border border-violet-400/20 bg-violet-500/10 px-2.5 py-1 text-sm font-semibold tracking-wide text-violet-300">Nov 2023 - Apr 2024</p>
                     <h3 class="mt-3 text-3xl font-semibold text-slate-50">IT Staff / Tech Support</h3>
                     <p class="mt-1 text-sm font-medium text-sky-300">Land Registration Systems Inc. (LARES) - Calbayog</p>
                     <p class="mt-3 text-sm leading-relaxed text-slate-200">Served as Site Lead / IT Staff, handled on-site technical concerns, and managed incident reports using the software developed by LARES.</p>
                 </article>
-                <article class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 transition duration-300 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
-                    <p class="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2.5 py-1 text-sm font-semibold tracking-wide text-cyan-300">Feb 2023 - May 2023</p>
-                    <h3 class="mt-3 text-3xl font-semibold text-slate-50">Web Developer Intern</h3>
-                    <p class="mt-1 text-sm font-medium text-sky-300">Nero Printing Services and Trading - Cebu</p>
-                    <p class="mt-3 text-sm leading-relaxed text-slate-200">Completed web development internship and built a website for the company.</p>
-                </article>
+                <div id="experience-extra" class="hidden">
+                    <article data-reveal data-delay="0" class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
+                        <p class="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2.5 py-1 text-sm font-semibold tracking-wide text-cyan-300">Feb 2023 - May 2023</p>
+                        <h3 class="mt-3 text-3xl font-semibold text-slate-50">Web Developer Intern</h3>
+                        <p class="mt-1 text-sm font-medium text-sky-300">Nero Printing Services and Trading - Cebu</p>
+                        <p class="mt-3 text-sm leading-relaxed text-slate-200">Completed web development internship and built a website for the company.</p>
+                    </article>
+                </div>
             </div>
+            <button id="experience-toggle" type="button" class="mt-6 rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-slate-800">See More</button>
         </section>
 
         <section id="projects" class="mx-auto max-w-6xl px-6 py-16">
-            <h2 class="text-2xl font-semibold">Projects</h2>
+            <h2 data-reveal data-delay="0" class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white opacity-0 -translate-x-12 transition-all duration-700 ease-out shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Projects</h2>
             <div class="mt-8 grid gap-6 md:grid-cols-3">
-                <article class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                <article data-reveal data-delay="80" class="rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
                     <h3 class="text-lg font-semibold">Project One</h3>
                     <p class="mt-2 text-sm text-slate-300">Short description of your first project.</p>
                 </article>
-                <article class="rounded-xl border border-slate-800 bg-slate-900 p-5">
+                <article data-reveal data-delay="160" class="rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
                     <h3 class="text-lg font-semibold">Project Two</h3>
                     <p class="mt-2 text-sm text-slate-300">Short description of your second project.</p>
                 </article>
-                <article class="rounded-xl border border-slate-800 bg-slate-900 p-5">
-                    <h3 class="text-lg font-semibold">Project Three</h3>
-                    <p class="mt-2 text-sm text-slate-300">Short description of your third project.</p>
-                </article>
+                <div id="projects-extra" class="hidden">
+                    <article data-reveal data-delay="0" class="rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                        <h3 class="text-lg font-semibold">Project Three</h3>
+                        <p class="mt-2 text-sm text-slate-300">Short description of your third project.</p>
+                    </article>
+                </div>
             </div>
+            <button id="projects-toggle" type="button" class="mt-6 rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-slate-800">See More</button>
         </section>
 
         <section id="contact" class="border-t border-slate-800 bg-slate-900/40">
             <div class="mx-auto max-w-6xl px-6 py-16">
-                <h2 class="text-2xl font-semibold">Contact me</h2>
+                <h2 class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Contact me</h2>
                 <div class="group mt-4 inline-flex items-center gap-3">
                     <button id="copy-phone" type="button" data-phone="+639310194370" class="text-2xl font-semibold transition duration-200 hover:scale-105">
                         +639310194370
@@ -113,6 +119,87 @@
         document.addEventListener('DOMContentLoaded', () => {
             const copyPhoneButton = document.getElementById('copy-phone');
             const copyPhoneLabel = document.getElementById('copy-phone-label');
+            const revealElements = document.querySelectorAll('[data-reveal]');
+
+            const revealItem = (element) => {
+                element.classList.remove('opacity-0', '-translate-x-12');
+                element.classList.add('opacity-100', 'translate-x-0');
+            };
+
+            const hideItem = (element) => {
+                element.classList.remove('opacity-100', 'translate-x-0');
+                element.classList.add('opacity-0', '-translate-x-12');
+            };
+
+            revealElements.forEach((element) => {
+                const delay = Number(element.dataset.delay ?? 0);
+                element.style.transitionDelay = `${delay}ms`;
+            });
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        revealItem(entry.target);
+                        return;
+                    }
+
+                    hideItem(entry.target);
+                });
+            }, { threshold: 0.18 });
+
+            revealElements.forEach((element) => {
+                revealObserver.observe(element);
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener('click', () => {
+                    const sectionId = anchor.getAttribute('href');
+
+                    if (!sectionId || sectionId === '#') {
+                        return;
+                    }
+
+                    const section = document.querySelector(sectionId);
+
+                    if (!section) {
+                        return;
+                    }
+
+                    section.querySelectorAll('[data-reveal]').forEach((element) => {
+                        revealItem(element);
+                    });
+                });
+            });
+
+            const setupExpandableSection = (buttonId, targetId) => {
+                const toggleButton = document.getElementById(buttonId);
+                const target = document.getElementById(targetId);
+
+                if (!toggleButton || !target) {
+                    return;
+                }
+
+                toggleButton.addEventListener('click', () => {
+                    const isHidden = target.classList.contains('hidden');
+
+                    if (isHidden) {
+                        target.classList.remove('hidden');
+                        toggleButton.textContent = 'See Less';
+
+                        target.querySelectorAll('[data-reveal]').forEach((element) => {
+                            revealObserver.observe(element);
+                        });
+
+                        return;
+                    }
+
+                    target.classList.add('hidden');
+                    toggleButton.textContent = 'See More';
+                });
+            };
+
+            setupExpandableSection('experience-toggle', 'experience-extra');
+            setupExpandableSection('projects-toggle', 'projects-extra');
 
             if (!copyPhoneButton) {
                 return;
