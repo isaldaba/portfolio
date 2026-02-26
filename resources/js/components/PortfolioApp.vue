@@ -2,26 +2,64 @@
     <div class="min-h-screen bg-slate-950 text-slate-100 antialiased">
         <header class="border-b border-slate-800">
             <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-                <p class="text-lg font-semibold">My Portfolio</p>
-                <div class="flex items-center gap-5 text-sm text-slate-300">
-                    <a href="#about" class="hover:text-white">About</a>
-                    <a href="#skills" class="hover:text-white">Skills</a>
-                    <a href="#experience" class="hover:text-white">Experience</a>
-                    <a href="#projects" class="hover:text-white">Projects</a>
-                    <a href="#contact" class="hover:text-white">Contact</a>
+                <!-- ISA monogram logo -->
+                <a href="#" class="group flex select-none items-center gap-2.5">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-500 text-sm font-extrabold tracking-tight text-white shadow-md shadow-violet-500/30 transition duration-200 group-hover:brightness-110 group-hover:shadow-violet-500/55">ISA</span>
+                    <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-base font-bold text-transparent tracking-wide">Ircis Sadi Aldaba</span>
+                </a>
+                <div class="flex items-center gap-3 text-sm">
+                    <a href="#skills" class="group relative px-4 py-1.5 font-medium text-slate-400 transition duration-200 hover:text-slate-100">
+                        Skills
+                        <span class="absolute inset-x-0 bottom-0 h-px scale-x-0 rounded-full bg-gradient-to-r from-slate-500 to-cyan-700 transition-transform duration-300 group-hover:scale-x-100"></span>
+                    </a>
+                    <a href="#contact" class="rounded-full border border-slate-600 bg-slate-800 px-4 py-1.5 font-semibold text-slate-200 shadow-sm transition duration-200 hover:border-slate-500 hover:bg-slate-700 hover:text-white">
+                        Contact
+                    </a>
                 </div>
             </nav>
         </header>
 
         <main>
-            <section class="mx-auto max-w-6xl px-6 py-20">
-                <p class="mb-4 inline-block rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300">Laravel 12 • PHP 8.2 • Tailwind CSS</p>
-                <h1 class="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-5xl [font-family:'Space_Grotesk',sans-serif]">Hi, I’m Your Ircis Sadi Aldaba. I build clean and fast web apps and I am a Full Web Developer currently working in ITech-rar, Solutions Inc..</h1>
-                <p class="mt-6 max-w-2xl text-base text-slate-300 md:text-lg">This is a simple portfolio starter built with Laravel + Vue and Tailwind. Update this content with your real bio, projects, and contact links.</p>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="#projects" class="rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white hover:bg-indigo-400">View Projects</a>
-                    <a href="#experience" class="rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 hover:bg-slate-800">Past Jobs</a>
-                    <a href="#contact" class="rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 hover:bg-slate-800">Contact Me</a>
+            <section class="relative isolate overflow-hidden border-b border-slate-800">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_35%,rgba(139,92,246,0.22),transparent_42%),radial-gradient(circle_at_75%_55%,rgba(34,211,238,0.20),transparent_45%)]"></div>
+                <div class="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
+                    <div style="perspective: 900px">
+                        <div :class="{ 'hero-flip-play': heroFlipping }">
+                            <h1 class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-6xl font-extrabold tracking-tight text-transparent md:text-8xl [font-family:'Space_Grotesk',sans-serif]">Ircis Sadi Aldaba</h1>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-2xl font-bold md:text-4xl" aria-label="Junior Full Stack Developer">
+                        <span
+                            v-for="(char, i) in subtitleChars"
+                            :key="i"
+                            class="char-float char-rgb inline-block"
+                            :style="{ animationDelay: `${i * 60}ms, ${i * 110}ms` }"
+                        >{{ char === ' ' ? '\u00A0' : char }}</span>
+                    </p>
+
+                    <div class="mt-10 flex items-center gap-4">
+                        <a href="#about" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-5 transition hover:border-violet-400/60 hover:bg-slate-800" aria-label="About Me">
+                            <svg class="h-7 w-7 text-violet-300 transition group-hover:text-violet-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </a>
+                        <a href="#experience" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-5 transition hover:border-fuchsia-400/60 hover:bg-slate-800" aria-label="Work Experience">
+                            <svg class="h-7 w-7 text-fuchsia-300 transition group-hover:text-fuchsia-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                        </a>
+                        <a href="#projects" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-5 transition hover:border-cyan-400/60 hover:bg-slate-800" aria-label="Projects">
+                            <svg class="h-7 w-7 text-cyan-300 transition group-hover:text-cyan-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </a>
+                    </div>
+
+                    <div class="mt-8 flex items-center gap-4">
+                        <a href="https://github.com/isaldaba" target="_blank" rel="noopener noreferrer" class="rounded-full border border-slate-700 bg-slate-900/70 p-2 text-slate-300 transition hover:text-white" aria-label="GitHub">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19a2.65 2.65 0 0 0-1.11-1.46c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.13 2.13 0 0 1 .63-1.34c-2.22-.25-4.55-1.11-4.55-4.92a3.86 3.86 0 0 1 1.03-2.68 3.58 3.58 0 0 1 .1-2.65s.84-.27 2.75 1.02a9.52 9.52 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02a3.58 3.58 0 0 1 .1 2.65 3.85 3.85 0 0 1 1.03 2.68c0 3.82-2.34 4.66-4.57 4.91a2.39 2.39 0 0 1 .68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ircis-sadi-aldaba-921390296/" target="_blank" rel="noopener noreferrer" class="rounded-full border border-slate-700 bg-slate-900/70 p-2 text-slate-300 transition hover:text-white" aria-label="LinkedIn">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 7.5A1.44 1.44 0 1 1 6.94 4.62a1.44 1.44 0 0 1 0 2.88zM5.5 8.98h2.88V19H5.5V8.98zm4.5 0h2.76v1.37h.04c.39-.73 1.33-1.5 2.74-1.5 2.93 0 3.46 1.93 3.46 4.43V19h-2.88v-5.04c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.92 1.3-1.92 2.65V19H10V8.98z"/></svg>
+                        </a>
+                        <a href="mailto:ircisaldaba97@gmail.com" class="rounded-full border border-slate-700 bg-slate-900/70 p-2 text-slate-300 transition hover:text-white" aria-label="Email">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -34,7 +72,7 @@
 
                     <div class="mt-12 grid items-center gap-10 lg:grid-cols-[320px_1fr]">
                         <div data-reveal data-delay="120" class="mx-auto w-full max-w-[320px] rounded-full border border-slate-700 bg-gradient-to-br from-violet-500/20 to-cyan-500/20 p-2 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
-                            <img :src="profilePhotoUrl" alt="Profile placeholder" class="h-[300px] w-full rounded-full object-cover md:h-[320px]">
+                            <img :src="profilePhotoUrl" @error="onProfileImageError" alt="Ircis profile photo" class="h-[300px] w-full rounded-full object-cover md:h-[320px]">
                         </div>
 
                         <div class="space-y-6">
@@ -73,28 +111,70 @@
             </section>
 
             <section id="experience" class="mx-auto max-w-6xl px-6 py-16">
-                <h2 data-reveal data-delay="0" class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white opacity-0 -translate-x-12 transition-all duration-700 ease-out shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Experience</h2>
-                <div class="mt-8 grid gap-6 md:grid-cols-3">
-                    <article data-reveal data-delay="80" class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
-                        <p class="inline-flex rounded-full border border-indigo-400/20 bg-indigo-500/10 px-2.5 py-1 text-sm font-semibold tracking-wide text-indigo-300">2025 - To Date</p>
-                        <h3 class="mt-3 text-3xl font-semibold text-slate-50">Jr. Full-Stack Web Developer</h3>
-                        <p class="mt-1 text-sm font-medium text-sky-300">ITech-RAR / Kumosoft, Mindanao Branch</p>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-200">Currently working as a Junior Full-Stack Developer, building new features and functions, debugging issues, and maintaining school websites in Mindanao while providing technical support for system-related concerns.</p>
-                    </article>
-                    <article data-reveal data-delay="160" class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
-                        <p class="inline-flex rounded-full border border-violet-400/20 bg-violet-500/10 px-2.5 py-1 text-sm font-semibold tracking-wide text-violet-300">Nov 2023 - Apr 2024</p>
-                        <h3 class="mt-3 text-3xl font-semibold text-slate-50">IT Staff / Tech Support</h3>
-                        <p class="mt-1 text-sm font-medium text-sky-300">Land Registration Systems Inc. (LARES) - Calbayog</p>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-200">Served as Site Lead / IT Staff, handled on-site technical concerns, and managed incident reports using the software developed by LARES.</p>
-                    </article>
-                    <article v-if="isExperienceExpanded" data-reveal data-delay="0" class="relative cursor-pointer rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-[1.08] hover:border-slate-600 hover:z-10 active:scale-110">
-                        <p class="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-2.5 py-1 text-sm font-semibold tracking-wide text-cyan-300">Feb 2023 - May 2023</p>
-                        <h3 class="mt-3 text-3xl font-semibold text-slate-50">Web Developer Intern</h3>
-                        <p class="mt-1 text-sm font-medium text-sky-300">Nero Printing Services and Trading - Cebu</p>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-200">Completed web development internship and built a website for the company.</p>
-                    </article>
-                </div>
-                <button type="button" class="mt-6 rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-slate-800" @click="toggleExperience">{{ isExperienceExpanded ? 'See Less' : 'See More' }}</button>
+                <h2 data-reveal data-delay="0" class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white opacity-0 -translate-x-12 transition-all duration-700 ease-out shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Work Experience</h2>
+                <article data-reveal data-delay="80" class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                    <h3 class="text-2xl font-semibold text-slate-50">Junior Full Stack Web Developer</h3>
+                    <p class="mt-2 text-sm font-medium text-slate-300">ITech-RAR / Kumosoft, Mindanao Branch • 2025 - To Date</p>
+
+                    <h4 class="mt-6 text-lg font-semibold text-violet-300">Key Responsibilities</h4>
+                    <ul class="mt-3 space-y-3 text-base leading-relaxed text-slate-200">
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Currently working as a Junior Full Stack Web Developer.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Building new functions and features.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Debugging issues or concerns reported by clients.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Maintaining school websites in Mindanao while providing L1 technical support for system-related concerns.</span></li>
+                    </ul>
+
+                    <h4 class="mt-6 text-lg font-semibold text-violet-300">Technologies & Skills</h4>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">Laravel</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">PHP</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">JavaScript</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">Vue</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">MySQL</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">L1 Tech Support</span>
+                    </div>
+                </article>
+
+                <article data-reveal data-delay="120" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                    <h3 class="text-2xl font-semibold text-slate-50">IT Staff / Site Lead</h3>
+                    <p class="mt-2 text-sm font-medium text-slate-300">Land Registration Systems Inc. (LARES) • November 2023 - April 2024</p>
+
+                    <h4 class="mt-6 text-lg font-semibold text-violet-300">Key Responsibilities</h4>
+                    <ul class="mt-3 space-y-3 text-base leading-relaxed text-slate-200">
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Managed network operations.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Maintained server and workstation PC availability.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Handled incident reports using LARES software.</span></li>
+                    </ul>
+
+                    <h4 class="mt-6 text-lg font-semibold text-violet-300">Technologies & Skills</h4>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">Networking</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">Troubleshooting</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">L1 Tech Support</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">Server Maintenance</span>
+                    </div>
+                </article>
+
+                <article data-reveal data-delay="160" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                    <h3 class="text-2xl font-semibold text-slate-50">Web Developer Internship</h3>
+                    <p class="mt-2 text-sm font-medium text-slate-300">Nero Printing Services and Trading • February 2023 - May 2023</p>
+
+                    <h4 class="mt-6 text-lg font-semibold text-violet-300">Key Responsibilities</h4>
+                    <ul class="mt-3 space-y-3 text-base leading-relaxed text-slate-200">
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Helped develop the company website and learned practical web development workflows.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Performed basic troubleshooting.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Handled debugging tasks.</span></li>
+                    </ul>
+
+                    <h4 class="mt-6 text-lg font-semibold text-violet-300">Technologies & Skills</h4>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">PHP</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">Laravel</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">Vue</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">SQLite</span>
+                        <span class="rounded-full border border-violet-500/40 bg-violet-500/10 px-3 py-1 text-sm text-violet-200">JavaScript</span>
+                    </div>
+                </article>
             </section>
 
             <section id="projects" class="mx-auto max-w-6xl px-6 py-16">
@@ -142,10 +222,14 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const phoneNumber = '+639310194370';
 const copyPhoneLabel = ref('Copy');
-const isExperienceExpanded = ref(false);
 const isProjectsExpanded = ref(false);
+const heroFlipping = ref(false);
+let heroFlipInterval = null;
 
-const profilePhotoUrl = 'https://placehold.co/640x640/020617/7dd3fc?text=Your+Photo';
+const defaultProfilePhotoUrl = 'https://placehold.co/640x640/020617/7dd3fc?text=Your+Photo';
+const profilePhotoCandidates = ['/images/profile.jpg', '/images/profile.jpeg', '/images/profile.png', '/images/profile.webp'];
+const profilePhotoIndex = ref(0);
+const profilePhotoUrl = ref(profilePhotoCandidates[profilePhotoIndex.value]);
 const resumeUrl = '#';
 
 const skills = [
@@ -161,6 +245,8 @@ const skills = [
 ];
 
 const duplicatedSkills = computed(() => [...skills, ...skills]);
+
+const subtitleChars = 'Junior Full Stack Developer'.split('');
 
 let revealObserver = null;
 
@@ -218,10 +304,15 @@ const copyPhone = async () => {
     }, 1200);
 };
 
-const toggleExperience = async () => {
-    isExperienceExpanded.value = !isExperienceExpanded.value;
-    await nextTick();
-    setupRevealObserver();
+const onProfileImageError = () => {
+    profilePhotoIndex.value += 1;
+
+    if (profilePhotoIndex.value < profilePhotoCandidates.length) {
+        profilePhotoUrl.value = profilePhotoCandidates[profilePhotoIndex.value];
+        return;
+    }
+
+    profilePhotoUrl.value = defaultProfilePhotoUrl;
 };
 
 const toggleProjects = async () => {
@@ -230,18 +321,68 @@ const toggleProjects = async () => {
     setupRevealObserver();
 };
 
+const triggerHeroFlip = () => {
+    heroFlipping.value = true;
+    setTimeout(() => { heroFlipping.value = false; }, 2700);
+};
+
 onMounted(() => {
     setupRevealObserver();
+    // Play once after 1.5s on load, then repeat every 10s
+    setTimeout(triggerHeroFlip, 1500);
+    heroFlipInterval = setInterval(triggerHeroFlip, 10000);
 });
 
 onBeforeUnmount(() => {
     if (revealObserver) {
         revealObserver.disconnect();
     }
+    if (heroFlipInterval) {
+        clearInterval(heroFlipInterval);
+    }
 });
 </script>
 
 <style scoped>
+@keyframes char-float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-9px); }
+}
+
+@keyframes char-rgb {
+    0%   { color: #f87171; }
+    16%  { color: #fb923c; }
+    33%  { color: #facc15; }
+    50%  { color: #4ade80; }
+    66%  { color: #60a5fa; }
+    83%  { color: #a78bfa; }
+    100% { color: #f87171; }
+}
+
+.char-float {
+    will-change: transform, color;
+}
+
+.char-float.char-rgb {
+    animation: char-float 2s ease-in-out infinite, char-rgb 4s linear infinite;
+}
+
+@keyframes hero-flip-glow {
+    0%   { transform: rotateX(0deg);   filter: brightness(1)   drop-shadow(0 0  0px rgba(167,139,250,0))   drop-shadow(0 0  0px rgba(232,121,249,0))   drop-shadow(0 0  0px rgba(34,211,238,0)); }
+    22%  { transform: rotateX(-90deg); filter: brightness(0.4) drop-shadow(0 0  0px rgba(167,139,250,0))   drop-shadow(0 0  0px rgba(232,121,249,0))   drop-shadow(0 0  0px rgba(34,211,238,0)); }
+    50%  { transform: rotateX(0deg);   filter: brightness(1)   drop-shadow(0 0  0px rgba(167,139,250,0))   drop-shadow(0 0  0px rgba(232,121,249,0))   drop-shadow(0 0  0px rgba(34,211,238,0)); }
+    65%  { transform: rotateX(0deg);   filter: brightness(1.1) drop-shadow(-4px 0 12px rgba(167,139,250,0.45)) drop-shadow(0 0 12px rgba(232,121,249,0.35)) drop-shadow(4px 0 12px rgba(34,211,238,0.35)); }
+    80%  { transform: rotateX(0deg);   filter: brightness(1.2) drop-shadow(-5px 0 18px rgba(167,139,250,0.55)) drop-shadow(0 0 18px rgba(232,121,249,0.50)) drop-shadow(5px 0 18px rgba(34,211,238,0.50)); }
+    100% { transform: rotateX(0deg);   filter: brightness(1)   drop-shadow(0 0  0px rgba(167,139,250,0))   drop-shadow(0 0  0px rgba(232,121,249,0))   drop-shadow(0 0  0px rgba(34,211,238,0)); }
+}
+
+.hero-flip-play {
+    animation: hero-flip-glow 2.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    will-change: transform, filter;
+}
+
 @keyframes skills-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
