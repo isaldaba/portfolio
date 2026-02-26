@@ -1,12 +1,16 @@
 [variables]
 NIXPACKS_NO_MIGRATE = "1"
+DB_CONNECTION = "sqlite"
+DB_DATABASE = "/app/database/database.sqlite"
 
 [phases.build]
 cmds = [
     "composer install --no-dev --optimize-autoloader",
     "npm ci",
-    "npm run build"
+    "npm run build",
+    "touch database/database.sqlite",
+    "php artisan migrate --force --no-interaction 2>/dev/null || true"
 ]
 
 [start]
-cmd = "php artisan config:clear && php artisan key:generate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "php artisan config:clear && php artisan serve --host=0.0.0.0 --port=$PORT"
