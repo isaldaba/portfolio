@@ -299,6 +299,20 @@
                 </div>
             </section>
         </main>
+
+        <!-- Scroll to Top -->
+        <Transition name="scroll-top">
+            <button
+                v-if="showScrollTop"
+                @click="scrollToTop"
+                aria-label="Scroll to top"
+                class="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-500 text-white shadow-lg shadow-violet-500/30 transition hover:brightness-110 active:scale-95"
+            >
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15"/>
+                </svg>
+            </button>
+        </Transition>
     </div>
 </template>
 
@@ -309,7 +323,11 @@ const phoneNumber = '+639310194370';
 const copyPhoneLabel = ref('Copy');
 const selectedProject = ref(null);
 const heroFlipping = ref(false);
+const showScrollTop = ref(false);
 let heroFlipInterval = null;
+
+const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+const onWindowScroll = () => { showScrollTop.value = window.scrollY > 300; };
 
 const defaultProfilePhotoUrl = 'https://placehold.co/640x640/020617/7dd3fc?text=Your+Photo';
 const profilePhotoCandidates = ['/images/profile.jpg', '/images/profile.jpeg', '/images/profile.png', '/images/profile.webp'];
@@ -441,6 +459,7 @@ onMounted(() => {
     // Play once after 1.5s on load, then repeat every 10s
     setTimeout(triggerHeroFlip, 1500);
     heroFlipInterval = setInterval(triggerHeroFlip, 10000);
+    window.addEventListener('scroll', onWindowScroll, { passive: true });
 });
 
 onBeforeUnmount(() => {
@@ -450,10 +469,21 @@ onBeforeUnmount(() => {
     if (heroFlipInterval) {
         clearInterval(heroFlipInterval);
     }
+    window.removeEventListener('scroll', onWindowScroll);
 });
 </script>
 
 <style scoped>
+.scroll-top-enter-active,
+.scroll-top-leave-active {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.scroll-top-enter-from,
+.scroll-top-leave-to {
+    opacity: 0;
+    transform: translateY(12px) scale(0.85);
+}
+
 .modal-enter-active,
 .modal-leave-active {
     transition: opacity 0.25s ease;
