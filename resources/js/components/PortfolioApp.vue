@@ -100,7 +100,7 @@
                 <div class="text-center">
                     <h2 class="inline-flex items-center rounded-lg border border-sky-500/30 bg-slate-900 px-4 py-2 text-2xl font-semibold text-sky-400 shadow-sm shadow-sky-500/20 [font-family:'Space_Grotesk',sans-serif]">Skills</h2>
                 </div>
-                <div class="mt-8 overflow-hidden">
+                <div class="skills-carousel-wrapper mt-8 overflow-hidden">
                     <div class="skills-carousel-track flex items-center gap-5 pr-5">
                         <article v-for="(skill, index) in duplicatedSkills" :key="`${skill.name}-${index}`" :aria-hidden="index >= skills.length" class="min-w-[170px] rounded-xl border border-slate-800 bg-slate-900 p-5 text-center">
                             <img :src="skill.icon" :alt="index >= skills.length ? '' : skill.name" class="mx-auto h-10 w-10 object-contain">
@@ -386,6 +386,10 @@ onBeforeUnmount(() => {
 @keyframes skills-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+}
+
+.skills-carousel-wrapper:hover .skills-carousel-track {
+    animation-play-state: paused;
 }
 
 .skills-carousel-track {
