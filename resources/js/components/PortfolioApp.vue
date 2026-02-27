@@ -249,6 +249,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div v-if="selectedProject.impact">
+                                    <h4 class="font-bold text-white">Impact</h4>
+                                    <div class="mt-3 grid gap-2 sm:grid-cols-2">
+                                        <div v-for="item in selectedProject.impact" :key="item" class="flex items-center gap-2 text-sm text-slate-300">
+                                            <span class="h-1.5 w-1.5 rounded-full bg-violet-400 flex-shrink-0"></span>
+                                            {{ item }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div v-if="selectedProject.accessNotice" class="rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3">
+                                    <p class="text-xs leading-relaxed text-amber-300">🔒 {{ selectedProject.accessNotice }}</p>
+                                </div>
                             </div>
                             <!-- Modal Footer -->
                             <div class="flex gap-3 border-t border-slate-800 p-6">
@@ -260,6 +272,9 @@
                                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19a2.65 2.65 0 0 0-1.11-1.46c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.13 2.13 0 0 1 .63-1.34c-2.22-.25-4.55-1.11-4.55-4.92a3.86 3.86 0 0 1 1.03-2.68 3.58 3.58 0 0 1 .1-2.65s.84-.27 2.75 1.02a9.52 9.52 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02a3.58 3.58 0 0 1 .1 2.65 3.85 3.85 0 0 1 1.03 2.68c0 3.82-2.34 4.66-4.57 4.91a2.39 2.39 0 0 1 .68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
                                     View Code
                                 </a>
+                                <span v-if="!selectedProject.liveUrl && !selectedProject.codeUrl" class="flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/50 px-5 py-2.5 text-sm text-slate-500 cursor-default">
+                                    🔒 Access Restricted
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -321,23 +336,29 @@ const subtitleChars = 'Junior Full Stack Developer'.split('');
 const projects = [
     {
         featured: true,
-        title: 'Cascades International School',
-        category: 'Full Stack Development',
-        image: 'https://placehold.co/1200x600/0f172a/7dd3fc?text=Cascades+International+School',
-        description: 'A commercial website for a progressive educational institution presenting the school\'s philosophy, curriculum, programs, branches, and community.',
-        overview: 'Cascades School is a commercial website for a progressive educational institution. The site presents the school\'s philosophy, curriculum, programs, branches, features, and community, and provides information for prospective students and parents. It includes interactive sections, program details, contact forms, admin tools, and visually rich content to communicate the school\'s values and offerings.',
-        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostCSS', 'PrismaORM', 'Vercel'],
+        title: 'School Management System',
+        category: 'Full-Stack Web Application · Production System',
+        image: 'https://placehold.co/1200x600/0f172a/7dd3fc?text=School+Management+System',
+        description: 'A production-grade system currently serving 8,000–9,000 students at a private educational institution. Centralizes student records, attendance, faculty management, and academic reporting.',
+        overview: 'A production-grade School Management System developed for a private educational institution, currently serving approximately 8,000–9,000 students. The platform centralizes student records, attendance tracking, faculty management, and academic reporting into a secure, role-based system used daily by administrators and staff. Live in production since May 2025.',
+        tech: ['Laravel', 'MySQL', 'REST APIs', 'PHP', 'Production Hosting'],
         features: [
-            'Server-Side Rendering & Static Generation',
-            'Responsive Design',
-            'Admin Dashboard',
-            'Dynamic Content',
-            'Contact & Inquiry Forms',
-            'Branch & Program Listings',
-            'Automated Code Quality',
+            'Multi-role authentication (Admin, Faculty, Staff)',
+            'Student enrollment & profile management',
+            'Attendance monitoring system',
+            'Academic record & grading modules',
+            'Secure dashboard & reporting tools',
+            'Data validation & relational database design',
         ],
-        liveUrl: 'https://rmmcmi.com',
+        impact: [
+            'Actively managing 8,000–9,000 student records',
+            'Used daily by administrative and faculty staff',
+            'Digitized and centralized institutional academic processes',
+            'Reduced reliance on manual record-keeping workflows',
+        ],
+        liveUrl: null,
         codeUrl: null,
+        accessNotice: 'This system is currently in active production use. Public access and source code are restricted due to institutional ownership and data privacy policies.',
     },
 ];
 
