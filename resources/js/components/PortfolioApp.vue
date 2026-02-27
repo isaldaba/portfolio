@@ -397,7 +397,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 
 const phoneNumber = '+639310194370';
 const copyPhoneLabel = ref('Copy');
@@ -408,6 +408,11 @@ let heroFlipInterval = null;
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 const onWindowScroll = () => { showScrollTop.value = window.scrollY > 300; };
+
+// Lock body scroll when modal is open
+watch(selectedProject, (val) => {
+    document.body.style.overflow = val ? 'hidden' : '';
+});
 
 const defaultProfilePhotoUrl = 'https://placehold.co/640x640/020617/7dd3fc?text=Your+Photo';
 const profilePhotoCandidates = ['/images/profile.jpg', '/images/profile.jpeg', '/images/profile.png', '/images/profile.webp'];
@@ -425,6 +430,7 @@ const skills = [
     { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/ffffff' },
     { name: 'Tailwind', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
     { name: 'Vue', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
+    { name: 'AI Multi Agent', icon: 'https://cdn.simpleicons.org/openai/7dd3fc' },
 ];
 
 const duplicatedSkills = computed(() => [...skills, ...skills]);
@@ -550,6 +556,7 @@ onBeforeUnmount(() => {
         clearInterval(heroFlipInterval);
     }
     window.removeEventListener('scroll', onWindowScroll);
+    document.body.style.overflow = '';
 });
 </script>
 
