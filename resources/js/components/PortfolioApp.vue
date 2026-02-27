@@ -116,12 +116,12 @@
                     <span data-reveal data-delay="80" class="mx-auto mt-3 block h-1 w-24 rounded-full bg-gradient-to-r from-fuchsia-400 to-cyan-400 opacity-0 -translate-x-12 transition-all duration-700 ease-out"></span>
                 </div>
                 <article data-reveal data-delay="80" class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10">
-                    <h3 class="text-xl font-semibold text-slate-50 sm:text-2xl">Junior Full Stack Web Developer</h3>
+                    <h3 class="text-xl font-semibold text-slate-50 sm:text-2xl">Full Stack Developer</h3>
                     <p class="mt-2 text-sm font-medium text-slate-300">ITech-RAR / Kumosoft, Mindanao Branch • 2025 - To Date</p>
 
                     <h4 class="mt-6 text-lg font-semibold text-violet-300">Key Responsibilities</h4>
                     <ul class="mt-3 space-y-3 text-base leading-relaxed text-slate-200">
-                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Currently working as a Junior Full Stack Web Developer.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Currently working as a Full Stack Developer.</span></li>
                         <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Building new functions and features.</span></li>
                         <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Debugging issues or concerns reported by clients.</span></li>
                         <li class="flex gap-3"><span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-400"></span><span>Maintaining school websites in Mindanao while providing L1 technical support for system-related concerns.</span></li>
@@ -437,7 +437,7 @@ const skills = [
 
 const duplicatedSkills = computed(() => [...skills, ...skills]);
 
-const subtitleChars = 'Junior Full Stack Developer'.split('');
+const subtitleChars = 'Full Stack Developer'.split('');
 
 const projects = [
     {
