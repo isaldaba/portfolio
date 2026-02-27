@@ -177,24 +177,94 @@
                 </article>
             </section>
 
-            <section id="projects" class="mx-auto max-w-6xl px-6 py-16">
-                <h2 data-reveal data-delay="0" class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white opacity-0 -translate-x-12 transition-all duration-700 ease-out shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Projects</h2>
-                <div class="mt-8 grid gap-6 md:grid-cols-3">
-                    <article data-reveal data-delay="80" class="rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
-                        <h3 class="text-lg font-semibold">Project One</h3>
-                        <p class="mt-2 text-sm text-slate-300">Short description of your first project.</p>
-                    </article>
-                    <article data-reveal data-delay="160" class="rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
-                        <h3 class="text-lg font-semibold">Project Two</h3>
-                        <p class="mt-2 text-sm text-slate-300">Short description of your second project.</p>
-                    </article>
-                    <article v-if="isProjectsExpanded" data-reveal data-delay="0" class="rounded-xl border border-slate-800 bg-slate-900 p-5 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
-                        <h3 class="text-lg font-semibold">Project Three</h3>
-                        <p class="mt-2 text-sm text-slate-300">Short description of your third project.</p>
-                    </article>
+            <section id="projects" class="border-t border-slate-800 bg-slate-900/20">
+                <div class="mx-auto max-w-6xl px-6 py-20">
+                    <div class="text-center">
+                        <h2 data-reveal data-delay="0" class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-4xl font-extrabold text-transparent opacity-0 -translate-x-12 transition-all duration-700 ease-out md:text-5xl [font-family:'Space_Grotesk',sans-serif]">Featured Projects</h2>
+                        <span data-reveal data-delay="80" class="mx-auto mt-3 block h-1 w-20 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 opacity-0 -translate-x-12 transition-all duration-700 ease-out"></span>
+                    </div>
+
+                    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <article
+                            v-for="(project, i) in projects"
+                            :key="project.title"
+                            data-reveal
+                            :data-delay="i * 80"
+                            class="group cursor-pointer rounded-2xl border border-slate-800 bg-slate-900 overflow-hidden opacity-0 -translate-x-12 transition-all duration-700 ease-out hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10"
+                            :class="{ 'sm:col-span-2 lg:col-span-3': project.featured }"
+                            @click="selectedProject = project"
+                        >
+                            <div class="relative overflow-hidden" :class="project.featured ? 'h-64' : 'h-44'">
+                                <img :src="project.image" :alt="project.title" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                                <span v-if="project.featured" class="absolute top-3 left-3 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-3 py-1 text-xs font-bold text-white shadow-md">⭐ Featured</span>
+                            </div>
+                            <div class="p-5">
+                                <h3 class="text-lg font-bold text-white group-hover:text-violet-300 transition-colors">{{ project.title }}</h3>
+                                <p class="mt-2 text-sm text-slate-400 line-clamp-2">{{ project.description }}</p>
+                                <div class="mt-3 flex flex-wrap gap-2">
+                                    <span v-for="tech in project.tech.slice(0, 3)" :key="tech" class="rounded-full border border-slate-700 bg-slate-800 px-2.5 py-0.5 text-xs text-slate-300">{{ tech }}</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
-                <button type="button" class="mt-6 rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-slate-800" @click="toggleProjects">{{ isProjectsExpanded ? 'See Less' : 'See More' }}</button>
             </section>
+
+            <!-- Project Modal -->
+            <Teleport to="body">
+                <Transition name="modal">
+                    <div v-if="selectedProject" class="fixed inset-0 z-50 flex items-center justify-center p-4" @click.self="selectedProject = null">
+                        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
+                        <div class="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl shadow-violet-500/10">
+                            <!-- Modal Header -->
+                            <div class="flex items-start gap-4 border-b border-slate-800 p-6">
+                                <img :src="selectedProject.image" :alt="selectedProject.title" class="h-14 w-14 rounded-xl object-cover flex-shrink-0">
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-xl font-bold text-violet-300">{{ selectedProject.title }}</h3>
+                                    <p class="text-sm text-slate-400">{{ selectedProject.category }}</p>
+                                </div>
+                                <button @click="selectedProject = null" class="ml-2 flex-shrink-0 rounded-lg p-1.5 text-slate-400 hover:bg-slate-800 hover:text-white transition">
+                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                                </button>
+                            </div>
+                            <!-- Modal Body -->
+                            <div class="p-6 space-y-6">
+                                <div>
+                                    <h4 class="font-bold text-white">Project Overview</h4>
+                                    <p class="mt-2 text-sm leading-relaxed text-slate-300">{{ selectedProject.overview }}</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Technology Stack</h4>
+                                    <div class="mt-3 flex flex-wrap gap-2">
+                                        <span v-for="tech in selectedProject.tech" :key="tech" class="rounded-full border border-slate-600 bg-slate-800 px-3 py-1 text-sm text-slate-200">{{ tech }}</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white">Key Features</h4>
+                                    <div class="mt-3 grid gap-2 sm:grid-cols-2">
+                                        <div v-for="feat in selectedProject.features" :key="feat" class="flex items-center gap-2 text-sm text-slate-300">
+                                            <span class="h-1.5 w-1.5 rounded-full bg-cyan-400 flex-shrink-0"></span>
+                                            {{ feat }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal Footer -->
+                            <div class="flex gap-3 border-t border-slate-800 p-6">
+                                <a v-if="selectedProject.liveUrl" :href="selectedProject.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:brightness-110 transition">
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                    View Live Site
+                                </a>
+                                <a v-if="selectedProject.codeUrl" :href="selectedProject.codeUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-full border border-slate-600 bg-slate-800 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-700 transition">
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19a2.65 2.65 0 0 0-1.11-1.46c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.13 2.13 0 0 1 .63-1.34c-2.22-.25-4.55-1.11-4.55-4.92a3.86 3.86 0 0 1 1.03-2.68 3.58 3.58 0 0 1 .1-2.65s.84-.27 2.75 1.02a9.52 9.52 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02a3.58 3.58 0 0 1 .1 2.65 3.85 3.85 0 0 1 1.03 2.68c0 3.82-2.34 4.66-4.57 4.91a2.39 2.39 0 0 1 .68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+                                    View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </Transition>
+            </Teleport>
 
             <section id="contact" class="border-t border-slate-800 bg-slate-900/40">
                 <div class="mx-auto max-w-6xl px-6 py-16">
@@ -218,11 +288,11 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 
 const phoneNumber = '+639310194370';
 const copyPhoneLabel = ref('Copy');
-const isProjectsExpanded = ref(false);
+const selectedProject = ref(null);
 const heroFlipping = ref(false);
 let heroFlipInterval = null;
 
@@ -247,6 +317,29 @@ const skills = [
 const duplicatedSkills = computed(() => [...skills, ...skills]);
 
 const subtitleChars = 'Junior Full Stack Developer'.split('');
+
+const projects = [
+    {
+        featured: true,
+        title: 'Cascades International School',
+        category: 'Full Stack Development',
+        image: 'https://placehold.co/1200x600/0f172a/7dd3fc?text=Cascades+International+School',
+        description: 'A commercial website for a progressive educational institution presenting the school\'s philosophy, curriculum, programs, branches, and community.',
+        overview: 'Cascades School is a commercial website for a progressive educational institution. The site presents the school\'s philosophy, curriculum, programs, branches, features, and community, and provides information for prospective students and parents. It includes interactive sections, program details, contact forms, admin tools, and visually rich content to communicate the school\'s values and offerings.',
+        tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostCSS', 'PrismaORM', 'Vercel'],
+        features: [
+            'Server-Side Rendering & Static Generation',
+            'Responsive Design',
+            'Admin Dashboard',
+            'Dynamic Content',
+            'Contact & Inquiry Forms',
+            'Branch & Program Listings',
+            'Automated Code Quality',
+        ],
+        liveUrl: 'https://rmmcmi.com',
+        codeUrl: null,
+    },
+];
 
 let revealObserver = null;
 
@@ -315,11 +408,7 @@ const onProfileImageError = () => {
     profilePhotoUrl.value = defaultProfilePhotoUrl;
 };
 
-const toggleProjects = async () => {
-    isProjectsExpanded.value = !isProjectsExpanded.value;
-    await nextTick();
-    setupRevealObserver();
-};
+
 
 const triggerHeroFlip = () => {
     heroFlipping.value = true;
@@ -344,6 +433,23 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.modal-enter-active,
+.modal-leave-active {
+    transition: opacity 0.25s ease;
+}
+.modal-enter-from,
+.modal-leave-to {
+    opacity: 0;
+}
+.modal-enter-active .relative.z-10,
+.modal-leave-active .relative.z-10 {
+    transition: transform 0.25s ease;
+}
+.modal-enter-from .relative.z-10,
+.modal-leave-to .relative.z-10 {
+    transform: scale(0.95);
+}
+
 @keyframes char-float {
     0%, 100% { transform: translateY(0px); }
     50%       { transform: translateY(-9px); }
