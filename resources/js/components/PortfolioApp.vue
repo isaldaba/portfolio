@@ -3,16 +3,16 @@
         <header class="border-b border-slate-800">
             <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
                 <!-- ISA monogram logo -->
-                <a href="#" class="group flex select-none items-center gap-2.5">
-                    <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-500 text-sm font-extrabold tracking-tight text-white shadow-md shadow-violet-500/30 transition duration-200 group-hover:brightness-110 group-hover:shadow-violet-500/55">ISA</span>
-                    <span class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-base font-bold text-transparent tracking-wide">Ircis Sadi Aldaba</span>
+                <a href="#" class="group flex select-none items-center gap-2.5 min-w-0">
+                    <span class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-500 text-sm font-extrabold tracking-tight text-white shadow-md shadow-violet-500/30 transition duration-200 group-hover:brightness-110 group-hover:shadow-violet-500/55">ISA</span>
+                    <span class="hidden sm:inline bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-base font-bold text-transparent tracking-wide">Ircis Sadi Aldaba</span>
                 </a>
-                <div class="flex items-center gap-3 text-sm">
-                    <a href="#skills" class="group relative px-4 py-1.5 font-medium text-slate-400 transition duration-200 hover:text-slate-100">
+                <div class="flex flex-shrink-0 items-center gap-2 text-sm">
+                    <a href="#skills" class="group relative hidden xs:block px-3 py-1.5 sm:px-4 font-medium text-slate-400 transition duration-200 hover:text-slate-100">
                         Skills
                         <span class="absolute inset-x-0 bottom-0 h-px scale-x-0 rounded-full bg-gradient-to-r from-slate-500 to-cyan-700 transition-transform duration-300 group-hover:scale-x-100"></span>
                     </a>
-                    <a href="#contact" class="rounded-full border border-slate-600 bg-slate-800 px-4 py-1.5 font-semibold text-slate-200 shadow-sm transition duration-200 hover:border-slate-500 hover:bg-slate-700 hover:text-white">
+                    <a href="#contact" class="rounded-full border border-slate-600 bg-slate-800 px-3 py-1.5 sm:px-4 font-semibold text-slate-200 shadow-sm transition duration-200 hover:border-slate-500 hover:bg-slate-700 hover:text-white">
                         Contact
                     </a>
                 </div>
@@ -22,13 +22,13 @@
         <main>
             <section class="relative isolate overflow-hidden border-b border-slate-800">
                 <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_35%,rgba(139,92,246,0.22),transparent_42%),radial-gradient(circle_at_75%_55%,rgba(34,211,238,0.20),transparent_45%)]"></div>
-                <div class="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
+                <div class="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 md:py-24">
                     <div style="perspective: 900px">
                         <div :class="{ 'hero-flip-play': heroFlipping }">
-                            <h1 class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-6xl font-extrabold tracking-tight text-transparent md:text-8xl [font-family:'Space_Grotesk',sans-serif]">Ircis Sadi Aldaba</h1>
+                            <h1 class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-7xl xl:text-8xl [font-family:'Space_Grotesk',sans-serif]">Ircis Sadi Aldaba</h1>
                         </div>
                     </div>
-                    <p class="mt-4 text-2xl font-bold md:text-4xl" aria-label="Junior Full Stack Developer">
+                    <p class="mt-4 text-lg font-bold sm:text-2xl md:text-3xl lg:text-4xl" aria-label="Junior Full Stack Developer">
                         <span
                             v-for="(char, i) in subtitleChars"
                             :key="i"
@@ -37,19 +37,19 @@
                         >{{ char === ' ' ? '\u00A0' : char }}</span>
                     </p>
 
-                    <div class="mt-10 flex items-center gap-4">
-                        <a href="#about" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-5 transition hover:border-violet-400/60 hover:bg-slate-800" aria-label="About Me">
-                            <svg class="h-7 w-7 text-violet-300 transition group-hover:text-violet-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                        <a href="#about" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-4 sm:p-5 transition hover:border-violet-400/60 hover:bg-slate-800" aria-label="About Me">
+                            <svg class="h-6 w-6 sm:h-7 sm:w-7 text-violet-300 transition group-hover:text-violet-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
                         </a>
-                        <a href="#experience" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-5 transition hover:border-fuchsia-400/60 hover:bg-slate-800" aria-label="Work Experience">
-                            <svg class="h-7 w-7 text-fuchsia-300 transition group-hover:text-fuchsia-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                        <a href="#experience" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-4 sm:p-5 transition hover:border-fuchsia-400/60 hover:bg-slate-800" aria-label="Work Experience">
+                            <svg class="h-6 w-6 sm:h-7 sm:w-7 text-fuchsia-300 transition group-hover:text-fuchsia-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"></rect><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                         </a>
-                        <a href="#projects" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-5 transition hover:border-cyan-400/60 hover:bg-slate-800" aria-label="Projects">
-                            <svg class="h-7 w-7 text-cyan-300 transition group-hover:text-cyan-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        <a href="#projects" class="group rounded-2xl border border-slate-700 bg-slate-900/70 p-4 sm:p-5 transition hover:border-cyan-400/60 hover:bg-slate-800" aria-label="Projects">
+                            <svg class="h-6 w-6 sm:h-7 sm:w-7 text-cyan-300 transition group-hover:text-cyan-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                         </a>
                     </div>
 
-                    <div class="mt-8 flex items-center gap-4">
+                    <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
                         <a href="https://github.com/isaldaba" target="_blank" rel="noopener noreferrer" class="rounded-full border border-slate-700 bg-slate-900/70 p-2 text-slate-300 transition hover:text-white" aria-label="GitHub">
                             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19a2.65 2.65 0 0 0-1.11-1.46c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.13 2.13 0 0 1 .63-1.34c-2.22-.25-4.55-1.11-4.55-4.92a3.86 3.86 0 0 1 1.03-2.68 3.58 3.58 0 0 1 .1-2.65s.84-.27 2.75 1.02a9.52 9.52 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02a3.58 3.58 0 0 1 .1 2.65 3.85 3.85 0 0 1 1.03 2.68c0 3.82-2.34 4.66-4.57 4.91a2.39 2.39 0 0 1 .68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
                         </a>
@@ -64,9 +64,9 @@
             </section>
 
             <section id="about" class="border-y border-slate-800 bg-slate-900/40">
-                <div class="mx-auto max-w-6xl px-6 py-20">
+                <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
                     <div class="text-center">
-                        <h2 data-reveal data-delay="0" class="text-4xl font-bold text-sky-400 opacity-0 -translate-x-12 transition-all duration-700 ease-out md:text-6xl [font-family:'Space_Grotesk',sans-serif]">About Me</h2>
+                        <h2 data-reveal data-delay="0" class="text-3xl font-bold text-sky-400 opacity-0 -translate-x-12 transition-all duration-700 ease-out sm:text-4xl md:text-5xl lg:text-6xl [font-family:'Space_Grotesk',sans-serif]">About Me</h2>
                         <span data-reveal data-delay="80" class="mx-auto mt-4 block h-1 w-24 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 opacity-0 -translate-x-12 transition-all duration-700 ease-out"></span>
                     </div>
 
@@ -77,9 +77,9 @@
 
                         <div class="space-y-6">
                             <article data-reveal data-delay="180" class="rounded-2xl border border-slate-800 bg-slate-950/70 p-8 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
-                                <h3 class="text-3xl font-semibold text-white">Hello, I am Ircis 👋</h3>
-                                <p class="mt-4 text-lg leading-relaxed text-slate-300">I build fast and practical web applications with strong backend structure and clean frontend interfaces. I focus on maintainable solutions using Laravel, JavaScript, and modern UI tools.</p>
-                                <p class="mt-4 text-lg leading-relaxed text-slate-300">I enjoy learning new technologies, solving real business problems, and continuously improving as a full-stack developer.</p>
+                                <h3 class="text-2xl font-semibold text-white sm:text-3xl">Hello, I am Ircis 👋</h3>
+                                <p class="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">I build fast and practical web applications with strong backend structure and clean frontend interfaces. I focus on maintainable solutions using Laravel, JavaScript, and modern UI tools.</p>
+                                <p class="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">I enjoy learning new technologies, solving real business problems, and continuously improving as a full-stack developer.</p>
                             </article>
 
                             <article data-reveal data-delay="240" class="rounded-2xl border border-cyan-500/20 bg-gradient-to-r from-violet-950/40 to-cyan-950/40 p-6 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
@@ -96,7 +96,7 @@
                 </div>
             </section>
 
-            <section id="skills" class="mx-auto max-w-6xl px-6 py-16">
+            <section id="skills" class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                 <div class="text-center">
                     <h2 class="inline-flex items-center rounded-lg border border-sky-500/30 bg-slate-900 px-4 py-2 text-2xl font-semibold text-sky-400 shadow-sm shadow-sky-500/20 [font-family:'Space_Grotesk',sans-serif]">Skills</h2>
                 </div>
@@ -110,10 +110,10 @@
                 </div>
             </section>
 
-            <section id="experience" class="mx-auto max-w-6xl px-6 py-16">
+            <section id="experience" class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                 <h2 data-reveal data-delay="0" class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white opacity-0 -translate-x-12 transition-all duration-700 ease-out shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Work Experience</h2>
-                <article data-reveal data-delay="80" class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
-                    <h3 class="text-2xl font-semibold text-slate-50">Junior Full Stack Web Developer</h3>
+                <article data-reveal data-delay="80" class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                    <h3 class="text-xl font-semibold text-slate-50 sm:text-2xl">Junior Full Stack Web Developer</h3>
                     <p class="mt-2 text-sm font-medium text-slate-300">ITech-RAR / Kumosoft, Mindanao Branch • 2025 - To Date</p>
 
                     <h4 class="mt-6 text-lg font-semibold text-violet-300">Key Responsibilities</h4>
@@ -135,8 +135,8 @@
                     </div>
                 </article>
 
-                <article data-reveal data-delay="120" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
-                    <h3 class="text-2xl font-semibold text-slate-50">IT Staff / Site Lead</h3>
+                <article data-reveal data-delay="120" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                    <h3 class="text-xl font-semibold text-slate-50 sm:text-2xl">IT Staff / Site Lead</h3>
                     <p class="mt-2 text-sm font-medium text-slate-300">Land Registration Systems Inc. (LARES) • November 2023 - April 2024</p>
 
                     <h4 class="mt-6 text-lg font-semibold text-violet-300">Key Responsibilities</h4>
@@ -155,8 +155,8 @@
                     </div>
                 </article>
 
-                <article data-reveal data-delay="160" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
-                    <h3 class="text-2xl font-semibold text-slate-50">Web Developer Internship</h3>
+                <article data-reveal data-delay="160" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                    <h3 class="text-xl font-semibold text-slate-50 sm:text-2xl">Web Developer Internship</h3>
                     <p class="mt-2 text-sm font-medium text-slate-300">Nero Printing Services and Trading • February 2023 - May 2023</p>
 
                     <h4 class="mt-6 text-lg font-semibold text-violet-300">Key Responsibilities</h4>
@@ -178,9 +178,9 @@
             </section>
 
             <section id="projects" class="border-t border-slate-800 bg-slate-900/20">
-                <div class="mx-auto max-w-6xl px-6 py-20">
+                <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
                     <div class="text-center">
-                        <h2 data-reveal data-delay="0" class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-4xl font-extrabold text-transparent opacity-0 -translate-x-12 transition-all duration-700 ease-out md:text-5xl [font-family:'Space_Grotesk',sans-serif]">Featured Projects</h2>
+                        <h2 data-reveal data-delay="0" class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-3xl font-extrabold text-transparent opacity-0 -translate-x-12 transition-all duration-700 ease-out sm:text-4xl md:text-5xl [font-family:'Space_Grotesk',sans-serif]">Featured Projects</h2>
                         <span data-reveal data-delay="80" class="mx-auto mt-3 block h-1 w-20 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 opacity-0 -translate-x-12 transition-all duration-700 ease-out"></span>
                     </div>
 
@@ -214,11 +214,11 @@
             <!-- Project Modal -->
             <Teleport to="body">
                 <Transition name="modal">
-                    <div v-if="selectedProject" class="fixed inset-0 z-50 flex items-center justify-center p-4" @click.self="selectedProject = null">
+                        <div v-if="selectedProject" class="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-0 sm:p-4" @click.self="selectedProject = null">
                         <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
-                        <div class="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl shadow-violet-500/10">
+                        <div class="relative z-10 w-full max-w-2xl max-h-[92vh] sm:max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-slate-700 bg-slate-900 shadow-2xl shadow-violet-500/10">
                             <!-- Modal Header -->
-                            <div class="flex items-start gap-4 border-b border-slate-800 p-6">
+                            <div class="flex items-start gap-3 border-b border-slate-800 p-4 sm:p-6">
                                 <img :src="selectedProject.image" :alt="selectedProject.title" class="h-14 w-14 rounded-xl object-cover flex-shrink-0">
                                 <div class="flex-1 min-w-0">
                                     <h3 class="text-xl font-bold text-violet-300">{{ selectedProject.title }}</h3>
@@ -229,7 +229,7 @@
                                 </button>
                             </div>
                             <!-- Modal Body -->
-                            <div class="p-6 space-y-6">
+                            <div class="p-4 sm:p-6 space-y-5 sm:space-y-6">
                                 <div>
                                     <h4 class="font-bold text-white">Project Overview</h4>
                                     <p class="mt-2 text-sm leading-relaxed text-slate-300">{{ selectedProject.overview }}</p>
@@ -263,7 +263,7 @@
                                 </div>
                             </div>
                             <!-- Modal Footer -->
-                            <div class="flex gap-3 border-t border-slate-800 p-6">
+                            <div class="flex flex-wrap gap-3 border-t border-slate-800 p-4 sm:p-6">
                                 <a v-if="selectedProject.liveUrl" :href="selectedProject.liveUrl" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:brightness-110 transition">
                                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                                     View Live Site
@@ -282,10 +282,10 @@
             </Teleport>
 
             <section id="contact" class="border-t border-slate-800 bg-slate-900/40">
-                <div class="mx-auto max-w-6xl px-6 py-16">
-                    <h2 class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Contact me</h2>
+                <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
+                    <h2 class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-xl font-semibold text-white shadow-sm shadow-indigo-500/10 sm:text-2xl [font-family:'Space_Grotesk',sans-serif]">Contact me</h2>
                     <div class="group mt-4 inline-flex items-center gap-3">
-                        <button type="button" class="text-2xl font-semibold transition duration-200 hover:scale-105" @click="copyPhone">{{ phoneNumber }}</button>
+                        <button type="button" class="text-xl font-semibold transition duration-200 hover:scale-105 sm:text-2xl" @click="copyPhone">{{ phoneNumber }}</button>
                         <span class="text-sm text-slate-400 opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ copyPhoneLabel }}</span>
                     </div>
                     <p class="mt-4 text-slate-300">Email: <a href="mailto:ircisaldaba97@gmail.com" class="hover:text-white hover:underline">ircisaldaba97@gmail.com</a></p>
