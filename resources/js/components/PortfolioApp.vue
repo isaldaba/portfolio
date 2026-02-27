@@ -291,7 +291,7 @@
                     </div>
 
                     <!-- Contact Cards -->
-                    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
                         <!-- Phone -->
                         <button
@@ -353,6 +353,22 @@
                             </span>
                             <div>
                                 <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">GitHub</p>
+                                <p class="mt-1 font-semibold text-slate-100">@isaldaba</p>
+                            </div>
+                        </a>
+
+                        <!-- GitLab -->
+                        <a
+                            href="https://gitlab.com/isaldaba"
+                            target="_blank" rel="noopener noreferrer"
+                            data-reveal data-delay="320"
+                            class="group flex flex-col items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-6 text-center opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.04] hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10"
+                        >
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/15 text-orange-300 transition group-hover:bg-orange-500/25">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="m23.546 10.93-1.335-4.104a.58.58 0 0 0-.27-.329.57.57 0 0 0-.418-.042L12 9.95 2.477 6.455a.57.57 0 0 0-.418.042.58.58 0 0 0-.27.33L.454 10.93a.576.576 0 0 0 .21.645l11.138 8.098a.576.576 0 0 0 .396 0l11.138-8.098a.576.576 0 0 0 .21-.645zM12 17.51 2.395 10.473l.96-2.95L12 10.87l8.645-3.348.96 2.95z"/></svg>
+                            </span>
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">GitLab</p>
                                 <p class="mt-1 font-semibold text-slate-100">@isaldaba</p>
                             </div>
                         </a>
