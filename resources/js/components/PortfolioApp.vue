@@ -112,7 +112,7 @@
 
             <section id="experience" class="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
                 <h2 data-reveal data-delay="0" class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-2xl font-semibold text-white opacity-0 -translate-x-12 transition-all duration-700 ease-out shadow-sm shadow-indigo-500/10 [font-family:'Space_Grotesk',sans-serif]">Work Experience</h2>
-                <article data-reveal data-delay="80" class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                <article data-reveal data-delay="80" class="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10">
                     <h3 class="text-xl font-semibold text-slate-50 sm:text-2xl">Junior Full Stack Web Developer</h3>
                     <p class="mt-2 text-sm font-medium text-slate-300">ITech-RAR / Kumosoft, Mindanao Branch • 2025 - To Date</p>
 
@@ -135,7 +135,7 @@
                     </div>
                 </article>
 
-                <article data-reveal data-delay="120" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                <article data-reveal data-delay="120" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10">
                     <h3 class="text-xl font-semibold text-slate-50 sm:text-2xl">IT Staff / Site Lead</h3>
                     <p class="mt-2 text-sm font-medium text-slate-300">Land Registration Systems Inc. (LARES) • November 2023 - April 2024</p>
 
@@ -155,7 +155,7 @@
                     </div>
                 </article>
 
-                <article data-reveal data-delay="160" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-700 ease-out">
+                <article data-reveal data-delay="160" class="mt-6 rounded-2xl border border-slate-800 bg-slate-900 p-5 sm:p-7 opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.02] hover:border-violet-500/40 hover:shadow-lg hover:shadow-violet-500/10">
                     <h3 class="text-xl font-semibold text-slate-50 sm:text-2xl">Web Developer Internship</h3>
                     <p class="mt-2 text-sm font-medium text-slate-300">Nero Printing Services and Trading • February 2023 - May 2023</p>
 
