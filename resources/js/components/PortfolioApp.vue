@@ -430,7 +430,6 @@ const skills = [
     { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/ffffff' },
     { name: 'Tailwind', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
     { name: 'Vue', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
-    { name: 'AI Multi Agent', icon: 'https://cdn.simpleicons.org/openai/7dd3fc' },
 ];
 
 const duplicatedSkills = computed(() => [...skills, ...skills]);
