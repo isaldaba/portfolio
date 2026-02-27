@@ -28,7 +28,7 @@
                             <h1 class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl md:text-7xl xl:text-8xl [font-family:'Space_Grotesk',sans-serif]">Ircis Sadi Aldaba</h1>
                         </div>
                     </div>
-                    <p class="mt-4 text-lg font-bold sm:text-2xl md:text-3xl lg:text-4xl" aria-label="Junior Full Stack Developer">
+                    <p class="mt-4 text-lg font-bold sm:text-2xl md:text-3xl lg:text-4xl" aria-label="Full Stack Developer">
                         <span
                             v-for="(char, i) in subtitleChars"
                             :key="i"
@@ -88,7 +88,7 @@
                                         <h4 class="text-2xl font-semibold text-white">Download Resume</h4>
                                         <p class="mt-1 text-slate-300">Get my latest CV in PDF format</p>
                                     </div>
-                                    <a :href="resumeUrl" class="rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white transition hover:brightness-110">Download PDF</a>
+                                    <a :href="resumeUrl" download="Ircis Sadi Aldaba-Resume.pdf" class="rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 px-6 py-3 text-sm font-semibold text-white transition hover:brightness-110">Download PDF</a>
                                 </div>
                             </article>
                         </div>
@@ -421,7 +421,7 @@ const defaultProfilePhotoUrl = 'https://placehold.co/640x640/020617/7dd3fc?text=
 const profilePhotoCandidates = ['/images/profile.jpg', '/images/profile.jpeg', '/images/profile.png', '/images/profile.webp'];
 const profilePhotoIndex = ref(0);
 const profilePhotoUrl = ref(profilePhotoCandidates[profilePhotoIndex.value]);
-const resumeUrl = '#';
+const resumeUrl = '/resume.pdf';
 
 const skills = [
     { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
