@@ -282,20 +282,84 @@
             </Teleport>
 
             <section id="contact" class="border-t border-slate-800 bg-slate-900/40">
-                <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-16">
-                    <h2 class="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-4 py-2 text-xl font-semibold text-white shadow-sm shadow-indigo-500/10 sm:text-2xl [font-family:'Space_Grotesk',sans-serif]">Contact me</h2>
-                    <div class="group mt-4 inline-flex items-center gap-3">
-                        <button type="button" class="text-xl font-semibold transition duration-200 hover:scale-105 sm:text-2xl" @click="copyPhone">{{ phoneNumber }}</button>
-                        <span class="text-sm text-slate-400 opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ copyPhoneLabel }}</span>
+                <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+                    <!-- Heading -->
+                    <div class="text-center">
+                        <h2 data-reveal data-delay="0" class="bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-3xl font-extrabold text-transparent opacity-0 -translate-x-12 transition-all duration-700 ease-out sm:text-4xl md:text-5xl [font-family:'Space_Grotesk',sans-serif]">Get In Touch</h2>
+                        <span data-reveal data-delay="80" class="mx-auto mt-3 block h-1 w-20 rounded-full bg-gradient-to-r from-violet-400 to-cyan-400 opacity-0 -translate-x-12 transition-all duration-700 ease-out"></span>
+                        <p data-reveal data-delay="140" class="mx-auto mt-4 max-w-md text-slate-400 opacity-0 -translate-x-12 transition-all duration-700 ease-out">Open to new opportunities, collaborations, or just a chat. Reach out through any of the channels below.</p>
                     </div>
-                    <p class="mt-4 text-slate-300">Email: <a href="mailto:ircisaldaba97@gmail.com" class="hover:text-white hover:underline">ircisaldaba97@gmail.com</a></p>
-                    <p class="mt-2 flex flex-wrap gap-2 text-slate-300">
-                        <a href="https://www.linkedin.com/in/ircis-sadi-aldaba-921390296/" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline">LinkedIn</a>
-                        <span>/</span>
-                        <a href="https://github.com/isaldaba" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline">GitHub (isaldaba)</a>
-                        <span>/</span>
-                        <a href="https://github.com/IrcisSadi" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline">GitHub (IrcisSadi)</a>
-                    </p>
+
+                    <!-- Contact Cards -->
+                    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+                        <!-- Phone -->
+                        <button
+                            type="button"
+                            data-reveal data-delay="80"
+                            class="group relative flex flex-col items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-6 text-center opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.04] hover:border-violet-500/50 hover:shadow-lg hover:shadow-violet-500/10"
+                            @click="copyPhone"
+                        >
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/15 text-violet-300 transition group-hover:bg-violet-500/25">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.8 19.8 0 0 1 1.61 3.36 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </span>
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Phone</p>
+                                <p class="mt-1 font-semibold text-slate-100">{{ phoneNumber }}</p>
+                            </div>
+                            <span class="absolute top-3 right-3 rounded-full bg-slate-800 px-2 py-0.5 text-xs text-slate-400 opacity-0 transition-opacity duration-200 group-hover:opacity-100">{{ copyPhoneLabel }}</span>
+                        </button>
+
+                        <!-- Email -->
+                        <a
+                            href="mailto:ircisaldaba97@gmail.com"
+                            data-reveal data-delay="140"
+                            class="group flex flex-col items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-6 text-center opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.04] hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10"
+                        >
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-300 transition group-hover:bg-cyan-500/25">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                            </span>
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Email</p>
+                                <p class="mt-1 break-all font-semibold text-slate-100 text-sm">ircisaldaba97@gmail.com</p>
+                            </div>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a
+                            href="https://www.linkedin.com/in/ircis-sadi-aldaba-921390296/"
+                            target="_blank" rel="noopener noreferrer"
+                            data-reveal data-delay="200"
+                            class="group flex flex-col items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-6 text-center opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.04] hover:border-sky-500/50 hover:shadow-lg hover:shadow-sky-500/10"
+                        >
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/15 text-sky-300 transition group-hover:bg-sky-500/25">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 7.5A1.44 1.44 0 1 1 6.94 4.62a1.44 1.44 0 0 1 0 2.88zM5.5 8.98h2.88V19H5.5V8.98zm4.5 0h2.76v1.37h.04c.39-.73 1.33-1.5 2.74-1.5 2.93 0 3.46 1.93 3.46 4.43V19h-2.88v-5.04c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.92 1.3-1.92 2.65V19H10V8.98z"/></svg>
+                            </span>
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">LinkedIn</p>
+                                <p class="mt-1 font-semibold text-slate-100">Ircis Sadi Aldaba</p>
+                            </div>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a
+                            href="https://github.com/isaldaba"
+                            target="_blank" rel="noopener noreferrer"
+                            data-reveal data-delay="260"
+                            class="group flex flex-col items-center gap-3 rounded-2xl border border-slate-800 bg-slate-900 p-6 text-center opacity-0 -translate-x-12 transition-all duration-300 ease-out hover:scale-[1.04] hover:border-fuchsia-500/50 hover:shadow-lg hover:shadow-fuchsia-500/10"
+                        >
+                            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-fuchsia-500/15 text-fuchsia-300 transition group-hover:bg-fuchsia-500/25">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19a2.65 2.65 0 0 0-1.11-1.46c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.13 2.13 0 0 1 .63-1.34c-2.22-.25-4.55-1.11-4.55-4.92a3.86 3.86 0 0 1 1.03-2.68 3.58 3.58 0 0 1 .1-2.65s.84-.27 2.75 1.02a9.52 9.52 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02a3.58 3.58 0 0 1 .1 2.65 3.85 3.85 0 0 1 1.03 2.68c0 3.82-2.34 4.66-4.57 4.91a2.39 2.39 0 0 1 .68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+                            </span>
+                            <div>
+                                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">GitHub</p>
+                                <p class="mt-1 font-semibold text-slate-100">@isaldaba</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Footer note -->
+                    <p class="mt-10 text-center text-sm text-slate-600">© {{ new Date().getFullYear() }} Ircis Sadi Aldaba · Built with Laravel &amp; Vue</p>
                 </div>
             </section>
         </main>
