@@ -356,7 +356,7 @@ const projects = [
             'Digitized and centralized institutional academic processes',
             'Reduced reliance on manual record-keeping workflows',
         ],
-        liveUrl: null,
+        liveUrl: 'https://rmmcmi.com',
         codeUrl: null,
         accessNotice: 'This system is currently in active production use. Public access and source code are restricted due to institutional ownership and data privacy policies.',
     },
