@@ -291,13 +291,13 @@
             <!-- Screenshot Lightbox -->
             <Teleport to="body">
                 <Transition name="modal">
-                    <div v-if="screenshotIndex !== null" class="fixed inset-0 z-[60] flex items-center justify-center p-4" @click.self="screenshotIndex = null">
-                        <div class="absolute inset-0 bg-slate-950/92 backdrop-blur-sm"></div>
-                        <div class="relative z-10 flex w-full max-w-5xl flex-col items-center">
-                            <!-- Close -->
-                            <button @click="screenshotIndex = null" class="absolute -top-1 right-0 rounded-lg p-1.5 text-slate-400 hover:bg-slate-800 hover:text-white transition" aria-label="Close screenshots">
-                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-                            </button>
+                    <div v-if="screenshotIndex !== null" class="fixed inset-0 z-[60] flex items-center justify-center p-4">
+                        <div class="absolute inset-0 bg-slate-950/92 backdrop-blur-sm" @click="screenshotIndex = null"></div>
+                        <!-- Close button — fixed top-right, always visible -->
+                        <button @click="screenshotIndex = null" class="fixed top-4 right-4 z-[70] flex h-10 w-10 items-center justify-center rounded-full bg-slate-800 text-slate-300 shadow-lg hover:bg-slate-700 hover:text-white transition" aria-label="Close screenshots">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                        </button>
+                        <div class="relative z-10 flex w-full max-w-5xl flex-col items-center" @click.stop>
                             <!-- Image -->
                             <div class="relative flex w-full items-center justify-center">
                                 <!-- Prev arrow -->
