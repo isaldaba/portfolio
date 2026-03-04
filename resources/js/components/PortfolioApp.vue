@@ -275,9 +275,58 @@
                                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.19-3.37-1.19a2.65 2.65 0 0 0-1.11-1.46c-.91-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.53 1.03 2.13 2.13 0 0 0 2.91.83 2.13 2.13 0 0 1 .63-1.34c-2.22-.25-4.55-1.11-4.55-4.92a3.86 3.86 0 0 1 1.03-2.68 3.58 3.58 0 0 1 .1-2.65s.84-.27 2.75 1.02a9.52 9.52 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02a3.58 3.58 0 0 1 .1 2.65 3.85 3.85 0 0 1 1.03 2.68c0 3.82-2.34 4.66-4.57 4.91a2.39 2.39 0 0 1 .68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
                                     View Code
                                 </a>
+                                <button v-if="selectedProject.screenshots && selectedProject.screenshots.length" @click="openScreenshot(0)" class="flex items-center gap-2 rounded-full border border-fuchsia-500/50 bg-fuchsia-500/10 px-5 py-2.5 text-sm font-semibold text-fuchsia-300 hover:bg-fuchsia-500/20 hover:border-fuchsia-400/70 transition">
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+                                    Screenshots ({{ selectedProject.screenshots.length }})
+                                </button>
                                 <span v-if="!selectedProject.liveUrl && !selectedProject.codeUrl" class="flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800/50 px-5 py-2.5 text-sm text-slate-500 cursor-default">
                                     🔒 Access Restricted
                                 </span>
+                            </div>
+                        </div>
+                    </div>
+                </Transition>
+            </Teleport>
+
+            <!-- Screenshot Lightbox -->
+            <Teleport to="body">
+                <Transition name="modal">
+                    <div v-if="screenshotIndex !== null" class="fixed inset-0 z-[60] flex items-center justify-center p-4" @click.self="screenshotIndex = null">
+                        <div class="absolute inset-0 bg-slate-950/92 backdrop-blur-sm"></div>
+                        <div class="relative z-10 flex w-full max-w-5xl flex-col items-center">
+                            <!-- Close -->
+                            <button @click="screenshotIndex = null" class="absolute -top-1 right-0 rounded-lg p-1.5 text-slate-400 hover:bg-slate-800 hover:text-white transition" aria-label="Close screenshots">
+                                <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            </button>
+                            <!-- Image -->
+                            <div class="relative flex w-full items-center justify-center">
+                                <!-- Prev arrow -->
+                                <button @click="prevScreenshot" class="absolute left-0 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white transition -translate-x-1 sm:-translate-x-5" aria-label="Previous screenshot">
+                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                                </button>
+                                <div class="overflow-hidden flex items-center justify-center w-full">
+                                    <Transition :name="'screenshot-' + screenshotDir" mode="out-in">
+                                        <img :src="screenshotImages[screenshotIndex]" :key="screenshotIndex" class="max-h-[75vh] w-auto max-w-full rounded-xl shadow-2xl shadow-violet-500/20 select-none" alt="Screenshot">
+                                    </Transition>
+                                </div>
+                                <!-- Next arrow -->
+                                <button @click="nextScreenshot" class="absolute right-0 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white transition translate-x-1 sm:translate-x-5" aria-label="Next screenshot">
+                                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                                </button>
+                            </div>
+                            <!-- Counter + dot indicators -->
+                            <div class="mt-4 flex flex-col items-center gap-2">
+                                <p class="text-sm font-medium text-slate-400">{{ screenshotIndex + 1 }} / {{ screenshotImages.length }}</p>
+                                <div class="flex flex-wrap justify-center gap-1.5">
+                                    <button
+                                        v-for="(_, i) in screenshotImages"
+                                        :key="i"
+                                        @click="screenshotDir = i >= screenshotIndex ? 'next' : 'prev'; screenshotIndex = i"
+                                        class="h-1.5 rounded-full transition-all duration-200"
+                                        :class="i === screenshotIndex ? 'w-5 bg-fuchsia-400' : 'w-1.5 bg-slate-600 hover:bg-slate-400'"
+                                        :aria-label="`Go to screenshot ${i + 1}`"
+                                    ></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -405,12 +454,28 @@ import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 const phoneNumber = '+639310194370';
 const copyPhoneLabel = ref('Copy');
 const selectedProject = ref(null);
+const screenshotIndex = ref(null);
+const screenshotDir = ref('next');
+const screenshotImages = computed(() => selectedProject.value?.screenshots ?? []);
+const openScreenshot = (index) => { screenshotDir.value = 'next'; screenshotIndex.value = index; };
+const prevScreenshot = () => { screenshotDir.value = 'prev'; screenshotIndex.value = (screenshotIndex.value - 1 + screenshotImages.value.length) % screenshotImages.value.length; };
+const nextScreenshot = () => { screenshotDir.value = 'next'; screenshotIndex.value = (screenshotIndex.value + 1) % screenshotImages.value.length; };
 const heroFlipping = ref(false);
 const showScrollTop = ref(false);
 let heroFlipInterval = null;
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 const onWindowScroll = () => { showScrollTop.value = window.scrollY > 300; };
+
+const onKeyDown = (e) => {
+    if (screenshotIndex.value !== null) {
+        if (e.key === 'ArrowLeft') prevScreenshot();
+        else if (e.key === 'ArrowRight') nextScreenshot();
+        else if (e.key === 'Escape') screenshotIndex.value = null;
+    } else if (selectedProject.value && e.key === 'Escape') {
+        selectedProject.value = null;
+    }
+};
 
 // Lock body scroll when modal is open
 watch(selectedProject, (val) => {
@@ -465,6 +530,19 @@ const projects = [
         liveUrl: 'https://rmmcmi.com',
         codeUrl: null,
         accessNotice: 'This system is currently in active production use. Public access and source code are restricted due to institutional ownership and data privacy policies.',
+        screenshots: [
+            '/images/ScreenShots/1.png',
+            '/images/ScreenShots/2.png',
+            '/images/ScreenShots/3.png',
+            '/images/ScreenShots/4.png',
+            '/images/ScreenShots/5.png',
+            '/images/ScreenShots/6.png',
+            '/images/ScreenShots/7.png',
+            '/images/ScreenShots/8.png',
+            '/images/ScreenShots/9.png',
+            '/images/ScreenShots/10.png',
+            '/images/ScreenShots/11.png',
+        ],
     },
 ];
 
@@ -548,6 +626,7 @@ onMounted(() => {
     setTimeout(triggerHeroFlip, 1500);
     heroFlipInterval = setInterval(triggerHeroFlip, 10000);
     window.addEventListener('scroll', onWindowScroll, { passive: true });
+    window.addEventListener('keydown', onKeyDown);
 });
 
 onBeforeUnmount(() => {
@@ -558,6 +637,7 @@ onBeforeUnmount(() => {
         clearInterval(heroFlipInterval);
     }
     window.removeEventListener('scroll', onWindowScroll);
+    window.removeEventListener('keydown', onKeyDown);
     document.body.style.overflow = '';
 });
 </script>
@@ -642,5 +722,48 @@ onBeforeUnmount(() => {
     animation: skills-scroll 28s linear infinite;
     width: max-content;
     will-change: transform;
+}
+
+/* Screenshot slide transitions */
+.screenshot-next-enter-active {
+    transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.28s ease;
+}
+.screenshot-next-leave-active {
+    transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.4, 0, 1, 1);
+}
+.screenshot-next-enter-from {
+    opacity: 0;
+    transform: translateX(56px) scale(0.97);
+    filter: brightness(1.3) blur(2px);
+}
+.screenshot-next-enter-to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: brightness(1) blur(0px);
+}
+.screenshot-next-leave-to {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.97);
+}
+
+.screenshot-prev-enter-active {
+    transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.28s ease;
+}
+.screenshot-prev-leave-active {
+    transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.4, 0, 1, 1);
+}
+.screenshot-prev-enter-from {
+    opacity: 0;
+    transform: translateX(-56px) scale(0.97);
+    filter: brightness(1.3) blur(2px);
+}
+.screenshot-prev-enter-to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: brightness(1) blur(0px);
+}
+.screenshot-prev-leave-to {
+    opacity: 0;
+    transform: translateX(40px) scale(0.97);
 }
 </style>
