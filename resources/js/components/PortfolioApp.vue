@@ -510,8 +510,8 @@ const projects = [
         title: 'School Management System',
         category: 'Full-Stack Web Application · Production System',
         image: 'https://rmmcmi.com/assets/site/images/web-background/landing_banner-2.webp',
-        description: 'A production-grade system currently serving 8,000–9,000 students at a private educational institution. Centralizes student records, attendance, faculty management, and academic reporting.',
-        overview: 'A production-grade School Management System developed for a private educational institution, currently serving approximately 8,000–9,000 students. The platform centralizes student records, attendance tracking, faculty management, and academic reporting into a secure, role-based system used daily by administrators and staff. Live in production since October 2025.',
+        description: 'A production-grade system currently serving 4,000–6,000 students at a private educational institution. Centralizes student records, attendance, faculty management, and academic reporting.',
+        overview: 'A production-grade School Management System developed for a private educational institution, currently serving approximately 4,000–6,000 students. The platform centralizes student records, attendance tracking, faculty management, and academic reporting into a secure, role-based system used daily by administrators and staff. Live in production since October 2025.',
         tech: ['Laravel', 'MySQL', 'REST APIs', 'PHP', 'Production Hosting'],
         features: [
             'Multi-role authentication (Admin, Faculty, Staff)',
@@ -522,7 +522,7 @@ const projects = [
             'Data validation & relational database design',
         ],
         impact: [
-            'Actively managing 8,000–9,000 student records',
+            'Actively managing 4,000–6,000 student records',
             'Used daily by administrative and faculty staff',
             'Digitized and centralized institutional academic processes',
             'Reduced reliance on manual record-keeping workflows',
